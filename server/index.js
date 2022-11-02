@@ -68,6 +68,6 @@ app.get("/", (req, res) => {
   console.log(res);
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("bruh");
 });
