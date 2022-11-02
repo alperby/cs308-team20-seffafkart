@@ -22,7 +22,7 @@ app.post("/api/login", (req, res) => {
   const sqlLoginCheck =
     "SELECT * FROM users_mod WHERE email = ? AND password = ?";
 
-  app.query(sqlLoginCheck, [email, password], (err, result) => {
+  db.query(sqlLoginCheck, [email, password], (err, result) => {
     if (err) {
       res.send({ err: err });
     }
