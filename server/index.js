@@ -5,10 +5,11 @@ const app = express();
 const mysql = require("mysql2");
 
 const db = mysql.createPool({
-  host: "34.118.106.170",
+  host: "containers-us-west-107.railway.app",
+  port: "7188",
   user: "root",
-  password: "DR3qDnbgTyVx2z4z",
-  database: "cruddatabase",
+  password: "XcjZhVuq7OkhBY60wSZn",
+  database: "railway",
 });
 
 app.use(cors());
