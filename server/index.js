@@ -35,19 +35,79 @@ app.post("/api/login", (req, res) => {
   });
 });
 
-// app.put("/api/update", (req, res) => {
-//   const id = req.body.id;
-//   const name = req.body.userName;
-//   const pass = req.body.password;
-//   const email = req.body.email;
-//   const info = req.body.userInfo;
+app.delete("/api/delete/:userName", (req, res) => {
+  const name = req.params.userName;
 
-//   const sqlUpdate = "UPDATE users SET userName = ?, password = ?, email = ?, userInfo = ? WHERE id = ?";
+  const sqlDelete = "DELETE FROM users_mod WHERE username = ?";
 
-//     db.query(sqlUpdate,[name, pass, email, info, id] , (err, result) => {
-//       if (err) console.log(err);
-//     })
-// });
+  db.query(sqlDelete, name, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/api/updateusername", (req, res) => {
+  const id = req.body.id;
+  const userName = req.body.userName;
+
+  const sqlUpdate = "UPDATE users_mod SET username = ? WHERE id = ?";
+
+  db.query(sqlUpdate, [userName, id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/api/updatepassword", (req, res) => {
+  const id = req.body.id;
+  const password = req.body.password;
+
+  const sqlUpdate = "UPDATE users_mod SET password = ? WHERE id = ?";
+
+  db.query(sqlUpdate, [password, id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/api/updateemail", (req, res) => {
+  const id = req.body.id;
+  const email = req.body.email;
+
+  const sqlUpdate = "UPDATE users_mod SET email = ? WHERE id = ?";
+
+  db.query(sqlUpdate, [email, id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/api/updateuserinfo", (req, res) => {
+  const id = req.body.id;
+  const userinfo = req.body.userInfo;
+
+  const sqlUpdate = "UPDATE users_mod SET userinfo = ? WHERE id = ?";
+
+  db.query(sqlUpdate, [userinfo, id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 app.post("/api/insert", (req, res) => {
   const userName = req.body.userName;
