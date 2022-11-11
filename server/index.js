@@ -3,9 +3,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const mysql = require("mysql2");
-import thunk from "redux-thunk";
-import { createStore, applyMiddleware } from "redux";
-createStore(rootReducers, applyMiddleware(thunk));
+const thunk = require("thunk");
+//import { createStore, applyMiddleware } from "redux";
+//createStore(rootReducers, applyMiddleware(thunk));
 
 const db = mysql.createPool({
   host: "containers-us-west-112.railway.app",
@@ -155,6 +155,6 @@ app.post("/api/team_data", (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3001, () => {
+app.listen(process.env.PORT || 4001, () => {
   console.log("bruh");
 });
