@@ -139,6 +139,20 @@ app.post("/api/insert_team", (req, res) => {
   });
 });
 
+app.post("/api/team_data", (req, res) => {
+  const sqlGetTeam = "SELECT name FROM football_team";
+
+  db.query(sqlGetTeam, (err, result) => {
+    if (err) {
+      res.send({ err: err });
+    }
+    if (r) {
+      res.send(result);
+    }
+    console.log(err, result);
+  });
+});
+
 app.listen(process.env.PORT || 3001, () => {
   console.log("bruh");
 });
