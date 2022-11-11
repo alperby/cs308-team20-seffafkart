@@ -145,8 +145,7 @@ app.post("/api/team_data", (req, res) => {
   db.query(sqlGetTeam, (err, result) => {
     if (err) {
       res.send({ err: err });
-    }
-    if (r) {
+    } else {
       res.send(result);
     }
     console.log(err, result);
