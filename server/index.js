@@ -129,6 +129,16 @@ app.get("/", (req, res) => {
   console.log(res);
 });
 
+app.post("/api/insert_team", (req, res) => {
+  const teamName = req.body.teamName;
+  const sqlInsert = "INSERT INTO football_team (name) VALUES (?)";
+  db.query(sqlInsert, [teamName], (err, result) => {
+    console.log(err);
+    console.log(result);
+    res.send(result);
+  });
+});
+
 app.listen(process.env.PORT || 3001, () => {
   console.log("bruh");
 });
