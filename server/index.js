@@ -5,10 +5,10 @@ const app = express();
 const mysql = require("mysql2");
 
 const db = mysql.createPool({
-  host: "containers-us-west-107.railway.app",
-  port: "7188",
+  host: "containers-us-west-112.railway.app",
+  port: "6729",
   user: "root",
-  password: "XcjZhVuq7OkhBY60wSZn",
+  password: "lSujSaxLjNaXMvnoeixR",
   database: "railway",
 });
 
